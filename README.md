@@ -82,7 +82,7 @@ Before installing these extensions, ensure the following:
 
 ## Integration with Sec-Sci AutoPT
 
-These extensions are designed to operate seamlessly as part of the [SecSci AutoPT](https://www.security-science.com/sec-sci-autopt) automated penetration testing components.
+These extensions are designed to operate seamlessly as part of the [SecSci AutoPT](https://www.security-science.com/sec-sci-autopt) automated penetration testing framework.
 
 
 ## License
