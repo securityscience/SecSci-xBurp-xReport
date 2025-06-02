@@ -36,8 +36,8 @@ class BurpExtender(IBurpExtender, IHttpListener):
     def run_scanStatus(self):
         sec_sci_threads = []
         while int(time.time()) - self.last_packet_seen <= self.packet_timeout or len(sec_sci_threads) > 0:
-            print("(Current Time:", int(time.time()), ") - (Last Packet Seen Time:", self.last_packet_seen, ") = ",
-                  int(time.time()) - self.last_packet_seen, " <= (Packet Timeout:", self.packet_timeout, ")")
+            # print("(Current Time:", int(time.time()), ") - (Last Packet Seen Time:", self.last_packet_seen, ") = ",
+            #       int(time.time()) - self.last_packet_seen, " <= (Packet Timeout:", self.packet_timeout, ")")
             try:
                 threads = self.get_all_threads()
                 # self._callbacks.printOutput("[*] --- JVM Thread Dump (Filtered SecSci Threads) ---")
@@ -50,14 +50,14 @@ class BurpExtender(IBurpExtender, IHttpListener):
                     try:
                         name = t.getName() if t.getName() else "<unnamed>"
                         alive = t.isAlive()
-                        daemon = t.isDaemon()
-                        tid = t.getId()
-                        state = t.getState()
+                        # daemon = t.isDaemon()
+                        # tid = t.getId()
+                        # state = t.getState()
 
                         if name.startswith("SecSci") and alive:
-                            """self._callbacks.printOutput(
-                                "  - Name: '{}', Alive: {}, Daemon: {}, ID: {}, State: {}".format(
-                                    name, alive, daemon, tid, state))"""
+                            # self._callbacks.printOutput(
+                            #     "  - Name: '{}', Alive: {}, Daemon: {}, ID: {}, State: {}".format(
+                            #         name, alive, daemon, tid, state))
                             sec_sci_threads.append(t)
 
                     except Exception as e:
